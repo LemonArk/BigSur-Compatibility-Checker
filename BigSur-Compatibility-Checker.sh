@@ -44,7 +44,7 @@
 # 	- REQUIREDMINIMUMRAM: minimum RAM required, in GB
 # 	- REQUIREDMINIMUMSPACE: minimum disk space available, in GB. Big Sur has different
 #							requirements depending on the OS from which you update
-#							Adjust to your needs, lines 79 (Catalina) or 82 (pre-Catalina) 
+#							Adjust to your needs, lines 79 (Catalina) or 82 (pre-Catalina)
 #
 #
 # Mac Hardware Requirements and equivalent as minimum Model Identifier
@@ -110,7 +110,7 @@ if [[ "$OSVERSIONMAJOR" -ge 13 && "$OSVERSIONMAJOR" -le 19 ]]; then
 	MEMORYINSTALLED=$(/usr/sbin/sysctl -n hw.memsize)
 
 	# Gets free space on the boot drive
-	FREESPACE=$(diskutil info / | awk -F'[()]' '/Free Space|Available Space/ {print $2}' | sed -e 's/\ Bytes//')
+	FREESPACE=$(diskutil info / | awk -F '[()]' '/Free Space|Available Space/ {print $2}' | sed -e 's/\ Bytes//')
 
 	# Checks if computer meets pre-requisites for Big Sur
 	if [[ "$MODELNAME" == "iMac" && "$MODELVERSION" -ge 144 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
